@@ -9,8 +9,13 @@ class TodoListViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void deleteTodo() async {
-    //Todo finish
+  void deleteTodo(int index) async {
+    if (index >= 0 && index <= todoList.length) {
+      todoList.removeAt(index);
+    } else {
+      print("invalid index for deleteTodo!");
+    }
+    fetchTodos();
   }
 
   void checkTodo(int index, bool isChecked) async {

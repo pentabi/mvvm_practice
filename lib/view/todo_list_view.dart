@@ -37,11 +37,13 @@ class _TodoListViewState extends State<TodoListView> {
                 itemCount: value.todos.length,
                 itemBuilder: (context, index) {
                   return TodoListItem(
-                    todo: value.todos[index],
-                    change: (isChecked) {
-                      value.checkTodo(index, isChecked ?? false);
-                    },
-                  );
+                      todo: value.todos[index],
+                      change: (isChecked) {
+                        value.checkTodo(index, isChecked ?? false);
+                      },
+                      delete: () {
+                        value.deleteTodo(index);
+                      });
                 },
               );
             })));
