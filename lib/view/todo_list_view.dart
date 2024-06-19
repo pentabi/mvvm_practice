@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_practice/view/widgets/my_drawer.dart';
 import 'package:mvvm_practice/view/widgets/todo_list_item.dart';
 import 'package:mvvm_practice/viewmodel/todo_list_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,8 @@ class _TodoListViewState extends State<TodoListView> {
     super.initState();
     vm.fetchTodos();
   }
-
+  
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
@@ -28,6 +30,7 @@ class _TodoListViewState extends State<TodoListView> {
         appBar: AppBar(
           title: const Text("Todo List"),
         ),
+        drawer: const MyDrawer(),
         body: ChangeNotifierProvider(
             create: (context) => vm,
             child:

@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+import 'package:mvvm_practice/model/todo_model.dart';
+
+class CreateTodoViewModel extends ChangeNotifier {
+  List<TodoModel> todos = [];
+
+  void fetchTodos() async {
+    todos = todoList;
+    notifyListeners();
+  }
+
+  void addTodo(String taskName) {
+    todos.add(TodoModel(
+      taskName: taskName,
+      createdAt: DateTime.now(),
+      isChecked: false,
+    ));
+    notifyListeners();
+  }
+}
