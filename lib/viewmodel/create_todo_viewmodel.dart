@@ -11,6 +11,8 @@ class CreateTodoViewModel extends ChangeNotifier {
 
   void addTodo(String taskName) {
     todos.add(TodoModel(
+      id: todos.length + 1,
+      isDeleted: false,
       taskName: taskName,
       createdAt: DateTime.now(),
       isChecked: false,
